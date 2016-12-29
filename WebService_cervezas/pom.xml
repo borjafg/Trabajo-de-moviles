@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+
+	<!-- ===================================== -->
+	<!-- Identifica el proyecto de forma unica -->
+	<!-- ===================================== -->
+
+	<groupId>sdm</groupId>
+
+
+	<!-- ====================================== -->
+	<!-- Junto con el groupId identifica a este -->
+	<!-- proyecto de entre todos los del mundo -->
+	<!-- ===================================== -->
+
+	<artifactId>proyecto_para_sdm</artifactId>
+
+
+	<!-- ==================================== -->
+	<!-- Junto con el groupId y el artifactId -->
+	<!-- identifica al proyecto. Esta indica -->
+	<!-- cual es la version de este proyecto -->
+	<!-- ==================================== -->
+
+	<version>0.1 Beta</version>
+
+
+	<!-- ======================== -->
+	<!-- Declaración de variables -->
+	<!-- ======================== -->
+
+	<properties>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<start-class>es.uniovi.sdm.Application</start-class>
+
+	</properties>
+
+
+	<!-- ======================================= -->
+	<!-- POM base que se usa para completar éste -->
+	<!-- ======================================= -->
+
+	<!-- ======================================= -->
+	<!-- Funciona de forma similar a la herencia -->
+	<!-- ======================================= -->
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.3.RELEASE</version>
+	</parent>
+
+
+	<!-- ================================= -->
+	<!-- Proyectos de los que depende este -->
+	<!-- ================================= -->
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<!-- =============================================== -->
+	<!-- Indica detalles sobre cómo compilar el proyecto -->
+	<!-- =============================================== -->
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+	</build>
+
+
+	<repositories>
+		<repository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+	</repositories>
+
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+
+</project>
