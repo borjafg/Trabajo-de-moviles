@@ -88,6 +88,14 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>12.1.0.2</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/oracle-driver-ojdbc-12.1.0.2.jar</systemPath>
+		</dependency>
+
 	</dependencies>
 
 
