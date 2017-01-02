@@ -1,32 +1,23 @@
 package es.uniovi.sdm.web_service.responses.error;
 
-/**
- * Sólo sirve para poder recoger las excpeciones que se puedan recoger las
- * excepciones que se producen en la respuesta.</br>
- * </br>
- * El error tendrá esta estructura:</br>
- * </br>
- * <i>{"reason": "Causa por la que ocurrió el error"}</i>
- * 
- */
-public abstract class ErrorResponse extends RuntimeException {
+public class ErrorResponse {
 
-	private static final long serialVersionUID = -1310142541863329731L;
+	private String causa;
 
-	/**
-	 * Devuelve en formato JSON la causa del error
-	 * 
-	 * @return causa del error
-	 * 
-	 */
-	public abstract String getMessageJSONFormat();
+	ErrorResponse() {
 
-	/**
-	 * Devuelve en una cadena de texto la causa del error.
-	 * 
-	 * @return causa del error
-	 * 
-	 */
-	public abstract String getMessageStringFormat();
+	}
+
+	public ErrorResponse(String causa) {
+		setCausa(causa);
+	}
+
+	public String getCausa() {
+		return causa;
+	}
+
+	public void setCausa(String causa) {
+		this.causa = causa;
+	}
 
 }

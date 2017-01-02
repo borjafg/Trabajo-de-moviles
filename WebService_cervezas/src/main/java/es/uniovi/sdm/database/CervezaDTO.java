@@ -2,8 +2,8 @@ package es.uniovi.sdm.database;
 
 import es.uniovi.sdm.database.model.Cerveza;
 
-public interface CervezaFinder {
+public interface CervezaDTO {
 
-	public Cerveza findByNombre(String nombre);
+	public Cerveza findByCodigo(String codigo);
 
 }

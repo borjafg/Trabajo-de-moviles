@@ -19,6 +19,7 @@ public class Usuario {
 	private Long id;
 
 	private String login;
+	private String password;
 	private String nombre;
 
 	@OneToMany(mappedBy = "usuario")
@@ -28,8 +29,11 @@ public class Usuario {
 
 	}
 
-	public Usuario(String login) {
+	public Usuario(String login, String password, String nombre) {
 		this.login = login;
+		this.password = password;
+
+		this.nombre = nombre;
 	}
 
 	// ============================
@@ -46,6 +50,14 @@ public class Usuario {
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public void setNombre(String nombre) {

@@ -35,6 +35,12 @@ public class Busqueda {
 		this.cerveza = cerveza;
 	}
 
+	public Busqueda(Usuario usuario, Cerveza cerveza, Date fecha) {
+		this(usuario, cerveza);
+
+		this.fechaUltimaBusqueda = fecha;
+	}
+
 	// ============================
 	// Getters y Setters
 	// ============================

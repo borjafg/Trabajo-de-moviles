@@ -13,6 +13,11 @@ public class BusquedaKey implements Serializable {
 
 	}
 
+	public BusquedaKey(Long usuario, Long cerveza) {
+		this.usuario = usuario;
+		this.cerveza = cerveza;
+	}
+
 	// ============================
 	// Getters y Setters
 	// ============================

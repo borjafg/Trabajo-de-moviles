@@ -1,5 +1,7 @@
 package es.uniovi.sdm.web_service.responses.correcto;
 
+import es.uniovi.sdm.database.model.Cerveza;
+
 /**
  * Las clases respuesta deben ser clases con atributos de tipos básicos.<br/>
  * <br/>
@@ -8,32 +10,88 @@ package es.uniovi.sdm.web_service.responses.correcto;
  */
 public class CervezaResponse {
 
-	private String atributo1;
-	private double atributo2;
+	private String codigo;
+	private String nombre;
+	private String descripcion;
+	private String estilo;
+	private double graduacion;
+	private String malta;
+	private String lupulo;
 
-	public CervezaResponse() {
+	CervezaResponse() {
 		super();
 	}
 
-	public CervezaResponse(String atributo1, double atributo2) {
-		setAtributo1(atributo1);
-		setAtributo2(atributo2);
+	public CervezaResponse(Cerveza cerveza) {
+		super();
+
+		setCodigo(cerveza.getCodigo());
+		setNombre(cerveza.getNombre());
+		setDescripcion(cerveza.getDescripcion());
+		setEstilo(cerveza.getEstilo());
+		setGraduacion(cerveza.getGraduacion());
+		setMalta(cerveza.getMalta());
+		setLupulo(cerveza.getLupulo());
 	}
 
-	public String getAtributo1() {
-		return atributo1;
+	// ================================
+	// Getters y Setters
+	// ================================
+
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public void setAtributo1(String atributo1) {
-		this.atributo1 = atributo1;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
-	public double getAtributo2() {
-		return atributo2;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setAtributo2(double atributo2) {
-		this.atributo2 = atributo2;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getEstilo() {
+		return estilo;
+	}
+
+	public void setEstilo(String estilo) {
+		this.estilo = estilo;
+	}
+
+	public double getGraduacion() {
+		return graduacion;
+	}
+
+	public void setGraduacion(double graduacion) {
+		this.graduacion = graduacion;
+	}
+
+	public String getMalta() {
+		return malta;
+	}
+
+	public void setMalta(String malta) {
+		this.malta = malta;
+	}
+
+	public String getLupulo() {
+		return lupulo;
+	}
+
+	public void setLupulo(String lupulo) {
+		this.lupulo = lupulo;
 	}
 
 }

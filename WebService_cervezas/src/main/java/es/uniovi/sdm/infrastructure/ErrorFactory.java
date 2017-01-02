@@ -1,8 +1,8 @@
 package es.uniovi.sdm.infrastructure;
 
-import es.uniovi.sdm.web_service.responses.error.CervezaNoEncontradaErrorResponse;
-import es.uniovi.sdm.web_service.responses.error.ErrorDesconocidoResponse;
-import es.uniovi.sdm.web_service.responses.error.ErrorResponse;
+import org.springframework.http.HttpStatus;
+
+import es.uniovi.sdm.web_service.responses.error.ErrorDePeticionException;
 
 /**
  * Sólo sirve para poder recoger las excpeciones que se puedan recoger las
@@ -16,7 +16,7 @@ import es.uniovi.sdm.web_service.responses.error.ErrorResponse;
 public class ErrorFactory {
 
 	public static enum Errors {
-		CERVEZA_NO_ENCONTRADA, ERROR_DESCONOCIDO
+		USUARIO_YA_EXISTE, USUARIO_NO_EXISTE, CERVEZA_NO_ENCONTRADA, ERROR_DESCONOCIDO
 	};
 
 	/**
@@ -28,17 +28,38 @@ public class ErrorFactory {
 
 	}
 
-	public static ErrorResponse getErrorResponse(Errors causaError) {
+	public static ErrorDePeticionException getErrorResponse(Errors causaError) {
 		switch (causaError) {
 
+		// ==========================
+		// Usuario
+		// ==========================
+
+		case USUARIO_YA_EXISTE:
+			return new ErrorDePeticionException("Ya existe un usuario con ese login", HttpStatus.IM_USED);
+
+		case USUARIO_NO_EXISTE:
+			return new ErrorDePeticionException("El usuario no existe o la contraseña es incorrecta",
+					HttpStatus.NOT_FOUND);
+
+		// ==========================
+		// Cerveza
+		// ==========================
+
 		case CERVEZA_NO_ENCONTRADA:
-			return new CervezaNoEncontradaErrorResponse();
+			return new ErrorDePeticionException("No se ha encontrado la cerveza", HttpStatus.NOT_FOUND);
+
+		// ==========================
+		// Error desconocido
+		// ==========================
 
 		case ERROR_DESCONOCIDO:
-			return new ErrorDesconocidoResponse();
+			return new ErrorDePeticionException("Ha ocurrido un error al procesar la petición",
+					HttpStatus.INTERNAL_SERVER_ERROR);
 
 		default:
-			return new ErrorDesconocidoResponse();
+			return new ErrorDePeticionException("Ha ocurrido un error al procesar la petición",
+					HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
 	}
