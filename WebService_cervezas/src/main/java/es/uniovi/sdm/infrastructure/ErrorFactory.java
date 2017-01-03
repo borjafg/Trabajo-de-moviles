@@ -16,7 +16,7 @@ import es.uniovi.sdm.web_service.responses.error.ErrorDePeticionException;
 public class ErrorFactory {
 
 	public static enum Errors {
-		USUARIO_YA_EXISTE, USUARIO_NO_EXISTE, CERVEZA_NO_ENCONTRADA, ERROR_DESCONOCIDO
+		USUARIO_YA_EXISTE, USUARIO_NO_EXISTE, CERVEZA_NO_ENCONTRADA, SIN_BUSQUEDAS, NO_POSIBLE_SUGERIR_HISTORIAL_VACIO, NO_POSIBLE_SUGERIR_DATOS_INSUFICIENTES, ERROR_DESCONOCIDO
 	};
 
 	/**
@@ -48,6 +48,21 @@ public class ErrorFactory {
 
 		case CERVEZA_NO_ENCONTRADA:
 			return new ErrorDePeticionException("No se ha encontrado la cerveza", HttpStatus.NOT_FOUND);
+
+		// ==========================
+		// Búsquedas
+		// ==========================
+
+		case SIN_BUSQUEDAS:
+			return new ErrorDePeticionException("El historial de búsquedas está vacío", HttpStatus.NOT_FOUND);
+
+		case NO_POSIBLE_SUGERIR_HISTORIAL_VACIO:
+			return new ErrorDePeticionException("No se pueden hacer sugerencias porque el historial está vacío",
+					HttpStatus.NOT_FOUND);
+
+		case NO_POSIBLE_SUGERIR_DATOS_INSUFICIENTES:
+			return new ErrorDePeticionException("No se pueden hacer sugerencias porque no hay datos suficientes",
+					HttpStatus.NOT_FOUND);
 
 		// ==========================
 		// Error desconocido

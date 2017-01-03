@@ -23,7 +23,7 @@ public class UserController {
 	/**
 	 * Busca la información de un usuario.
 	 * 
-	 * @param UsuarioFindRequest
+	 * @param busqueda
 	 *            datos para localizar al usuario
 	 * 
 	 * @return información del usuario
@@ -32,7 +32,7 @@ public class UserController {
 	 *             ha ocurrido un error al buscar la información
 	 * 
 	 */
-	@RequestMapping(value = "/cerveza_info", method = RequestMethod.GET, headers = "Accept=application/json", produces = {
+	@RequestMapping(value = "/login", method = RequestMethod.POST, headers = "Accept=application/json", produces = {
 			"application/json" })
 	public ResponseEntity<UsuarioResponse> login(@RequestBody(required = true) UsuarioFindRequest busqueda)
 			throws ErrorDePeticionException {
@@ -52,16 +52,14 @@ public class UserController {
 	/**
 	 * Busca la información de un usuario.
 	 * 
-	 * @param UsuarioFindRequest
-	 *            datos para localizar al usuario
-	 * 
-	 * @return información del usuario
+	 * @param busqueda
+	 *            datos del usuario que se pretende crear
 	 * 
 	 * @throws ErrorDePeticionException
 	 *             ha ocurrido un error al buscar la información
 	 * 
 	 */
-	@RequestMapping(value = "/cerveza_info", method = RequestMethod.POST, headers = "Accept=application/json", produces = {
+	@RequestMapping(value = "/registrarse", method = RequestMethod.POST, headers = "Accept=application/json", produces = {
 			"application/json" })
 	public ResponseEntity<UsuarioResponse> registrarse(@RequestBody(required = true) UsuarioCreateRequest busqueda)
 			throws ErrorDePeticionException {

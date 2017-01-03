@@ -14,6 +14,7 @@ import es.uniovi.sdm.infrastructure.ErrorFactory;
 import es.uniovi.sdm.infrastructure.ErrorFactory.Errors;
 import es.uniovi.sdm.infrastructure.MyLogger;
 import es.uniovi.sdm.web_service.requests.CervezaFindRequest;
+import es.uniovi.sdm.web_service.requests.CervezaSugeridaFindRequest;
 import es.uniovi.sdm.web_service.responses.correcto.CervezaResponse;
 import es.uniovi.sdm.web_service.responses.error.ErrorDePeticionException;
 
@@ -55,8 +56,8 @@ public class CervezaController {
 	/**
 	 * Busca la información de una cerveza.
 	 * 
-	 * @param nombre
-	 *            nombre de la cerveza
+	 * @param busqueda
+	 *            codigo de la cerveza y usuario que pide la búsqueda
 	 * 
 	 * @return información de la cerveza
 	 * 
@@ -66,8 +67,8 @@ public class CervezaController {
 	 */
 	@RequestMapping(value = "/cerveza_info", method = RequestMethod.POST, headers = "Accept=application/json", produces = {
 			"application/json" })
-	public ResponseEntity<CervezaResponse> findCerverzaByNombre(@RequestBody(required = true) CervezaFindRequest busqueda)
-			throws ErrorDePeticionException {
+	public ResponseEntity<CervezaResponse> findCerverzaByNombre(
+			@RequestBody(required = true) CervezaFindRequest busqueda) throws ErrorDePeticionException {
 
 		MyLogger.debug("Peticion de los datos una cerveza --> codigo = '" + busqueda.getCodigo_cerveza() + "'");
 
@@ -87,6 +88,48 @@ public class CervezaController {
 
 			DTOfactory.getBusquedaDTO().createOrUpdateBusqueda(usuario, cerveza);
 		}
+
+		return new ResponseEntity<CervezaResponse>(new CervezaResponse(cerveza), HttpStatus.OK);
+	}
+
+	/**
+	 * Busca la información de una cerveza sugerida para el usuario.
+	 * 
+	 * @param busqueda
+	 *            usuario que pide la búsqueda
+	 * 
+	 * @return información de la cerveza sugerida
+	 * 
+	 * @throws ErrorDePeticionException
+	 *             ha ocurrido un error al buscar la información
+	 * 
+	 */
+	@RequestMapping(value = "/cerveza_sugerida", method = RequestMethod.POST, headers = "Accept=application/json", produces = {
+			"application/json" })
+	public ResponseEntity<CervezaResponse> findCervezaSugerida(
+			@RequestBody(required = true) CervezaSugeridaFindRequest busqueda) throws ErrorDePeticionException {
+
+		MyLogger.debug("Peticion de los datos una cerveza sugerida --> login = '" + busqueda.getLogin() + "'");
+
+		// ======================
+		// (1) Buscar el usuario
+		// ======================
+
+		Usuario usuario = DTOfactory.getUsuarioDTO().findUsuario(busqueda.getLogin(), busqueda.getPassword());
+
+		if (usuario == null) {
+			throw ErrorFactory.getErrorResponse(ErrorFactory.Errors.USUARIO_NO_EXISTE);
+		}
+
+		// ======================================================================
+		// (2) Usar el historial del usuario para buscar una cerveza que sugerir
+		// ======================================================================
+
+		Cerveza cerveza = DTOfactory.getBusquedaDTO().findCervezaSugerir(usuario);
+
+		// ==========================================
+		// (3) Devolver la información de la cerveza
+		// ==========================================
 
 		return new ResponseEntity<CervezaResponse>(new CervezaResponse(cerveza), HttpStatus.OK);
 	}
