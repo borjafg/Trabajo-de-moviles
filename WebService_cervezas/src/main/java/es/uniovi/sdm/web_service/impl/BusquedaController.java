@@ -2,6 +2,7 @@ package es.uniovi.sdm.web_service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.uniovi.sdm.business.BusquedaService;
+import es.uniovi.sdm.business.UsuarioService;
 import es.uniovi.sdm.database.model.Cerveza;
 import es.uniovi.sdm.database.model.Usuario;
-import es.uniovi.sdm.infrastructure.DTOfactory;
 import es.uniovi.sdm.infrastructure.ErrorFactory;
 import es.uniovi.sdm.infrastructure.ErrorFactory.Errors;
 import es.uniovi.sdm.infrastructure.MyLogger;
@@ -22,6 +24,15 @@ import es.uniovi.sdm.web_service.responses.error.ErrorDePeticionException;
 
 @RestController
 public class BusquedaController {
+
+	private final UsuarioService usuarioService;
+	private final BusquedaService busquedaService;
+
+	@Autowired
+	BusquedaController(UsuarioService usuarioService, BusquedaService busquedaService) {
+		this.usuarioService = usuarioService;
+		this.busquedaService = busquedaService;
+	}
 
 	/**
 	 * Busca el historial de un usuario.
@@ -44,7 +55,7 @@ public class BusquedaController {
 		// (1) Búsqueda de los datos de un usuario
 		// ========================================
 
-		Usuario usuario = DTOfactory.getUsuarioDTO().findUsuario(busqueda.getLogin(), busqueda.getPassword());
+		Usuario usuario = usuarioService.findUsuario(busqueda.getLogin(), busqueda.getPassword());
 
 		if (usuario == null) {
 			throw ErrorFactory.getErrorResponse(Errors.USUARIO_NO_EXISTE);
@@ -54,8 +65,8 @@ public class BusquedaController {
 		// (2) Búsqueda del historial del usuario
 		// =======================================
 
-		List<Cerveza> historial = DTOfactory.getBusquedaDTO().findHistorial(usuario);
-		
+		List<Cerveza> historial = busquedaService.findHistorial(usuario);
+
 		// ==========================
 		// (3) Devolver el historial
 		// ==========================

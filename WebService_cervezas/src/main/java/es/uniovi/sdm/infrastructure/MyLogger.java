@@ -4,7 +4,11 @@ import org.apache.log4j.Logger;
 
 public class MyLogger {
 
-	private static Logger log = Logger.getLogger(MyLogger.class);
+	/**
+	 * Nombre que le damos al logger creado
+	 * 
+	 */
+	private static Logger log = Logger.getLogger("Logger__para__depuracion");
 
 	private MyLogger() {
 

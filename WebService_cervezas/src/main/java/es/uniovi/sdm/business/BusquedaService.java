@@ -1,4 +1,4 @@
-package es.uniovi.sdm.database;
+package es.uniovi.sdm.business;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import es.uniovi.sdm.database.model.Cerveza;
 import es.uniovi.sdm.database.model.Usuario;
 import es.uniovi.sdm.web_service.responses.error.ErrorDePeticionException;
 
-public interface BusquedaDTO {
+public interface BusquedaService {
 
 	public List<Cerveza> findHistorial(Usuario usuario) throws ErrorDePeticionException;
 

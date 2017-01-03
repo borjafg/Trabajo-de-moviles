@@ -26,7 +26,7 @@
 	<!-- cual es la version de este proyecto -->
 	<!-- ==================================== -->
 
-	<version>0.1 Beta</version>
+	<version>0.4 Beta</version>
 
 
 	<!-- ======================== -->
@@ -71,16 +71,10 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		
+
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -91,7 +85,6 @@
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path</artifactId>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -100,20 +93,6 @@
 			<version>12.1.0.2</version>
 			<scope>system</scope>
 			<systemPath>${basedir}/lib/oracle-driver-ojdbc-12.1.0.2.jar</systemPath>
-		</dependency>
-
-		<!-- =============== -->
-		<!-- ==== Log4j ==== -->
-		<!-- =============== -->
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
 		</dependency>
 
 	</dependencies>

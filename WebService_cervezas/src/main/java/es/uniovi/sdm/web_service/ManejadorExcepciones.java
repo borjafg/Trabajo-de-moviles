@@ -26,7 +26,8 @@ public class ManejadorExcepciones {
 	@ExceptionHandler(value = { ErrorDePeticionException.class })
 	public ResponseEntity<ErrorResponse> handleConflict(ErrorDePeticionException ex) {
 
-		MyLogger.debug("Ha ocurrido un error conocido al gestionar una petición", ex);
+		MyLogger.error("Ha ocurrido un error conocido al gestionar una petición");
+		MyLogger.error("Causa del error:  " + ex.getCausaError());
 
 		return new ResponseEntity<ErrorResponse>(new ErrorResponse(ex.getCausaError()), ex.getEstado());
 	}
@@ -34,7 +35,7 @@ public class ManejadorExcepciones {
 	@ExceptionHandler(value = { RuntimeException.class })
 	public ResponseEntity<ErrorResponse> handleConflict(RuntimeException e) {
 
-		MyLogger.error("Ha ocurrido un error desconocido una petición", e);
+		MyLogger.error("Ha ocurrido un error inesperado al gestionar una petición", e);
 
 		ErrorDePeticionException error = ErrorFactory.getErrorResponse(Errors.ERROR_DESCONOCIDO);
 

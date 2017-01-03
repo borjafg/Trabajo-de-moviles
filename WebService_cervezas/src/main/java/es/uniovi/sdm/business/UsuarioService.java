@@ -1,9 +1,9 @@
-package es.uniovi.sdm.database;
+package es.uniovi.sdm.business;
 
 import es.uniovi.sdm.database.model.Usuario;
 import es.uniovi.sdm.web_service.responses.error.ErrorDePeticionException;
 
-public interface UsuarioDTO {
+public interface UsuarioService {
 
 	public Usuario findUsuario(String login, String password);
 
