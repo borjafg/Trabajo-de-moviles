@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-
+	<name>WebService_cervezas</name>
 
 	<!-- ===================================== -->
 	<!-- Identifica el proyecto de forma unica -->
@@ -17,7 +17,7 @@
 	<!-- proyecto de entre todos los del mundo -->
 	<!-- ===================================== -->
 
-	<artifactId>proyecto_para_sdm</artifactId>
+	<artifactId>WebService_cervezas</artifactId>
 
 
 	<!-- ==================================== -->
@@ -26,7 +26,7 @@
 	<!-- cual es la version de este proyecto -->
 	<!-- ==================================== -->
 
-	<version>0.4 Beta</version>
+	<version>1.0</version>
 
 
 	<!-- ======================== -->
