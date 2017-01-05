@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import es.uniovi.sdm.database.model.util.MathUtil;
 
 @Entity
-@Table(name = "Z_Cervezas", schema="public")
+@Table(name = "z_cervezas")
 public class Cerveza {
 
 	@Id
