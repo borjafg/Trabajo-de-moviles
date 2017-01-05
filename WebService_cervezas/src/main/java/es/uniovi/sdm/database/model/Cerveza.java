@@ -3,6 +3,7 @@ package es.uniovi.sdm.database.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,15 +18,29 @@ import es.uniovi.sdm.database.model.util.MathUtil;
 public class Cerveza {
 
 	@Id
+	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(name = "codigo")
 	private String codigo;
+
+	@Column(name = "nombre")
 	private String nombre;
+
+	@Column(name = "descripcion")
 	private String descripcion;
+
+	@Column(name = "estilo")
 	private String estilo;
+
+	@Column(name = "graduacion")
 	private double graduacion;
+
+	@Column(name = "malta")
 	private String malta;
+
+	@Column(name = "lupulo")
 	private String lupulo;
 
 	@OneToMany(mappedBy = "cerveza")

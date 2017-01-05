@@ -2,6 +2,7 @@ package es.uniovi.sdm.database.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -18,15 +19,16 @@ public class Busqueda {
 
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "id_usuario", referencedColumnName= "id")
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id")
 	private Usuario usuario;
 
 	@Id
 	@ManyToOne
-	@JoinColumn(name = "id_cerveza", referencedColumnName= "id")
+	@JoinColumn(name = "id_cerveza", referencedColumnName = "id")
 	private Cerveza cerveza;
 
 	@Temporal(TemporalType.TIME)
+	@Column(name = "fechaUltimaBusqueda")
 	private Date fechaUltimaBusqueda;
 
 	Busqueda() {
