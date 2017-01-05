@@ -3,7 +3,6 @@ package es.uniovi.sdm.database.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,21 +11,15 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Z_Usuarios")
+@Table(name = "Z_Usuarios", schema="public")
 public class Usuario {
 
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "login")
 	private String login;
-
-	@Column(name = "password")
 	private String password;
-
-	@Column(name = "password")
 	private String nombre;
 
 	@OneToMany(mappedBy = "usuario")

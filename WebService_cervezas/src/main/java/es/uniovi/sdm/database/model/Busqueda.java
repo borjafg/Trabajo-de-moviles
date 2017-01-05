@@ -2,7 +2,6 @@ package es.uniovi.sdm.database.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -14,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @IdClass(BusquedaKey.class)
-@Table(name = "Z_Busquedas")
+@Table(name = "Z_Busquedas", schema="public")
 public class Busqueda {
 
 	@Id
@@ -28,7 +27,6 @@ public class Busqueda {
 	private Cerveza cerveza;
 
 	@Temporal(TemporalType.TIME)
-	@Column(name = "fechaUltimaBusqueda")
 	private Date fechaUltimaBusqueda;
 
 	Busqueda() {
