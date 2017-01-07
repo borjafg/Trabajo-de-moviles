@@ -10,6 +10,10 @@ public class User {
     private String password;
     private String nombre;
 
+    public User() {
+
+    }
+
     public User(String login, String password, String nombre) {
         setLogin(login);
         setNombre(nombre);

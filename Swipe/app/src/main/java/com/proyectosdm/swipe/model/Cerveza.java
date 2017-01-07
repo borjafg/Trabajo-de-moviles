@@ -1,9 +1,5 @@
 package com.proyectosdm.swipe.model;
 
-/**
- * Created by Alberto Cortina on 05/01/2017.
- */
-
 public class Cerveza {
 
     public String codigo;
@@ -14,6 +10,10 @@ public class Cerveza {
     public String malta;
     public String lupulo;
 
+    public Cerveza() {
+
+    }
+
     public Cerveza(String codigo, String nombre, String descricpion, String estilo, String graduacion, String malta, String lupulo) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -22,6 +22,10 @@ public class Cerveza {
         this.graduacion = graduacion;
         this.malta = malta;
         this.lupulo = lupulo;
+    }
+
+    public String getCodigo() {
+        return codigo;
     }
 
     public String getNombre() {

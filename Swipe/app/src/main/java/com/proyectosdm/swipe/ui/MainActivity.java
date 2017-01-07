@@ -3,18 +3,29 @@ package com.proyectosdm.swipe.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.proyectosdm.swipe.R;
+import com.proyectosdm.swipe.model.User;
+import com.proyectosdm.swipe.ui.tareas.login.TareaLogin;
+import com.proyectosdm.swipe.ui.tareas.login.TareaLoginParametros;
 
 public class MainActivity extends AppCompatActivity{
+
+    // ---------------------------------------------
+    // Evitar Spam en boton login o registrarse
+    // ---------------------------------------------
+
+    public Boolean ejecutandoTarea = false;
+
+    // ----------------------------------------------
 
     Button btn_Abrir_Popup;
     LayoutInflater layoutInflater;
@@ -60,7 +71,20 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void clickConectarse(View view){
+        EditText textoLogin = (EditText) findViewById(R.id.textoLogin);
+        EditText textoPassword = (EditText) findViewById(R.id.textoPassword);
+
+        if(!ejecutandoTarea) {
+            new TareaLogin().execute(new TareaLoginParametros(textoLogin.getText().toString(), textoPassword.getText().toString(), this));
+        }
+    }
+
+    public void finClickConectarse(User user) {
         Intent intent = new Intent (this, Tabs.class);
+
+        Log.d("Usuario", "Valor del usuario --> " + user.getLogin() + ", " + user.getPassword());
+        // Pasar un parcelable (usuario)
+
         startActivity(intent);
     }
 
