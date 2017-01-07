@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:background="@android:color/white"
+
+    android:layout_marginRight="20dp"
+    android:weightSum="1">
+
+    <TextView
+        android:text="Ventana de Registro:"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvVentanaRegistro"
+
+        android:textSize="70sp"
+        android:textAlignment="center"/>
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvIntroduceNombreDeUsuario"
+        android:text="Introduce un nombre de usuario:"
+        android:layout_marginTop="30dp"
+        android:textSize="40sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:focusable="true"
+        android:ems="10"
+        android:id="@+id/etNombreUsuario"
+        android:hint="Nombre de usuario"
+
+
+        android:textSize="25sp" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvIntroContr"
+
+        android:layout_marginTop="30dp"
+        android:text="Introduce contraseña:"
+        android:textSize="40sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:focusable="true"
+
+        android:id="@+id/etContra"
+        android:hint="contraseña"
+        android:textSize="25sp" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvRepitContr"
+        android:text="Repite contraseña:"
+        android:layout_marginTop="30dp"
+        android:textSize="40sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+
+        android:ems="10"
+        android:focusable="true"
+        android:id="@+id/etRepitContra"
+        android:hint="repite contraseña"
+        android:textSize="25sp" />
+
+    <Button
+        android:text="Registrarse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:elevation="0dp"
+        android:id="@+id/botonAceptarRegistro"
+        android:textSize="30sp" />
+
+</LinearLayout>

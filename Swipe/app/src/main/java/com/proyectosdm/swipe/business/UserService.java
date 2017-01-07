@@ -13,4 +13,6 @@ public interface UserService {
 
     public void registrarse(User usuario) throws ErrorPeticionException;
 
+    public User cambiarContraseña(User usuario, String nuevaContraseña);
+
 }

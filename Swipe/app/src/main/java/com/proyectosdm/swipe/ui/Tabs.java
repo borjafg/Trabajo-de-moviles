@@ -1,5 +1,7 @@
 package com.proyectosdm.swipe.ui;
 
+import android.content.ClipData;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.*;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -25,6 +27,8 @@ public class Tabs extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
+    private ClipData.Item apagar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +42,6 @@ public class Tabs extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
-
     }
 
     @Override
@@ -48,10 +50,28 @@ public class Tabs extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_tabs, menu);
         MenuItem usuario = menu.findItem(R.id.MenuOpcion1);
 
-        usuario.setTitle("Usuario: " + usuarioLogueado.getLogin());
-        usuario.setEnabled(false);
+      //  usuario.setTitle("Usuario: " + usuarioLogueado.getLogin());
+        usuario.setEnabled(true);
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.MenuOpcion2) {
+            //Intent intent = new Intent (this, MainActivity.class);
+            //startActivity(intent);
+            this.finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 
    /** @Override

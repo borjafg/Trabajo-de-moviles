@@ -23,4 +23,9 @@ public class UserServiceImpl implements UserService {
     public void registrarse(User usuario) throws ErrorPeticionException {
         // Conexion y enviar datos del web service
     }
+
+    @Override
+    public User cambiarContraseña(User usuario, String nuevaContraseña) {
+        return null;
+    }
 }

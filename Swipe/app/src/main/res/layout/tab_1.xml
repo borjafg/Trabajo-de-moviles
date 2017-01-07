@@ -1,16 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.proyectosdm.swipe.ui.Tab_1">
+    tools:context="com.proyectosdm.swipe.ui.Tabs"
+    android:orientation="vertical">
 
-    <TextView
+    <Button
+        android:id="@+id/scan_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="one"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
-</RelativeLayout>
+        android:text="Escanear"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textSize="35dp"
+        android:onClick="scaner" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCodigo"
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textSize="40dp"
+            android:layout_centerInParent="true"
+            android:textStyle="normal|bold" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/nombreResultado"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción:"
+            android:textSize="40dp"
+            android:layout_centerInParent="true"
+            android:textStyle="normal|bold" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/descripcionResultado"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graduación:"
+            android:textSize="40dp"
+            android:layout_centerInParent="true"
+            android:textStyle="normal|bold" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/graduacionResultado"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Es malta:"
+            android:textSize="40dp"
+            android:layout_centerInParent="true"
+            android:textStyle="normal|bold" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/maltaResultado"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lúpulo:"
+            android:textSize="40dp"
+            android:layout_centerInParent="true"
+            android:textStyle="normal|bold" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/lupuloResultado"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estilo:"
+            android:textSize="40dp"
+            android:layout_centerInParent="true"
+            android:textStyle="normal|bold" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/estiloResultado"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            />
+    </LinearLayout>
+</LinearLayout>
