@@ -2,7 +2,7 @@ USUARIOS	Contraseñas	Nombre
 Juan		Juan		Juan Ramón
 Puerto		aprobado	Maria del Puerto Paule Ruiz
 Sofia		Sofia		Sofia
-Paco		Paco		Paco Ramírez
+Paco		Paco		Paco Ramirez
 
 CERVEZAS:
 CODIGO		NOMBRE	        DESCRIPCION			 										 			    ESTILO	     GRADUACION		MALTA	LUPULO
