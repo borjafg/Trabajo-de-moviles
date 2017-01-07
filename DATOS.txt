@@ -1,0 +1,13 @@
+USUARIOS	Contraseñas
+Juan		qwerty
+Admin		admin
+Sofia		password
+Maria		1234
+
+CERVEZAS:
+CODIGO		NOMBRE	        DESCRIPCION			 										 			    ESTILO	     GRADUACION		MALTA	LUPULO
+8411327022019	Mahou 33cl	De color dorado, aspecto brillante y cuerpo moderado, destaca por su sabor suave y buen equilibrio en boca.	   				-		4.8%		 Sí	  Sí
+8712000030599	Heineken 25cl	Cerveza originaria de los Países bajos que salió al mecado en 1873.									    Pale lager		5%		 Sí	  Sí
+8410655000010	San Miguel 33cl	Lanzada en 1957 fue la primera cerveza especial en España, destaca por su equilibrio, su frescura y su ligero amargor				-		5.4%		 Sí	  Nose
+		ALHAMBRA 1925.  Con su característica botella de color verde, se distingue por su peculiar toque acaramelado y por su perfecto y refrescante amargor final. Lager  		6.8%		 -	  -
+		Voll-Damm	La Doble Malta es lo que le da a Voll-Damm su inconfundible fuerza, cuerpo y sabor. Doble Malta es la seña de identidad de esta cerveza.    Oktoberfest-Marzen	7.2%		 Sí	  -
