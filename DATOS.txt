@@ -1,8 +1,8 @@
-USUARIOS	Contraseñas
-Juan		qwerty
-Admin		admin
-Sofia		password
-Maria		1234
+USUARIOS	Contraseñas	Nombre
+Juan		Juan		Juan Ramón
+Puerto		aprobado	Maria del Puerto Paule Ruiz
+Sofia		Sofia		Sofia
+Paco		Paco		Paco Ramírez
 
 CERVEZAS:
 CODIGO		NOMBRE	        DESCRIPCION			 										 			    ESTILO	     GRADUACION		MALTA	LUPULO
