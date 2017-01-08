@@ -13,6 +13,10 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.proyectosdm.swipe.R;
+import com.proyectosdm.swipe.business.impl.EscanerServiceImpl;
+import com.proyectosdm.swipe.business.util.ErrorPeticionException;
+import com.proyectosdm.swipe.model.Cerveza;
+import com.proyectosdm.swipe.model.User;
 
 public class Tab_1 extends Fragment {
 
@@ -71,7 +75,17 @@ public class Tab_1 extends Fragment {
 
             else {
                 Toast.makeText(getActivity(), result.getContents(), Toast.LENGTH_LONG).show();
-                resultado.setText(result.getContents());
+                resultado.setText(result.getContents());//Quitar cuando ya este hecho
+                EscanerServiceImpl s= new EscanerServiceImpl();
+                try {
+                    User user= new User("","","");
+
+                    Cerveza cerveza= s.obtenerDatosCerveza(result.getContents(),user);
+                } catch (ErrorPeticionException e) {
+                    e.printStackTrace();
+                }
+
+
             }
         }
 
@@ -80,5 +94,6 @@ public class Tab_1 extends Fragment {
             Toast.makeText(getActivity(), "No se han recibido datos", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 }

@@ -32,7 +32,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginLeft="20dp"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editTextNombreDeUsuario"
         android:hint="Usuario"
         android:textSize="46sp"
         android:textStyle="normal|bold"
@@ -46,47 +46,50 @@
 
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/editTextContraseña"
         android:hint="Contraseña"
         android:textSize="42sp"
+
         android:textStyle="normal|bold"
         android:maxLines="1" />
 
-    <GridLayout
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:weightSum="1">
+        >
 
         <Button
             android:id="@+id/botonconectarse"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Conectarse"
-            android:textSize="35sp"
+            android:textSize="28sp"
             android:onClick="clickConectarse"
             android:elevation="0dp"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
+            android:layout_marginLeft="15sp"
             android:layout_width="wrap_content" />
 
         <Button
             android:text="Registrarse"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:id="@+id/botonregistrarse"
             android:elevation="0dp"
-            android:textSize="35sp"
-            android:layout_marginLeft="30dp"
-            android:layout_weight="0.21"
+            android:textSize="28sp"
+
+            android:layout_marginLeft="15dp"
             android:layout_row="0"
             android:layout_column="2"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
             android:paddingBottom="20dp"
             android:paddingTop="20dp" />
-    </GridLayout>
+    </LinearLayout>
 
 </LinearLayout>

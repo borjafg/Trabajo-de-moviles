@@ -1,5 +1,7 @@
 package com.proyectosdm.swipe.model;
 
+import android.widget.EditText;
+
 /**
  * Created by Alberto Cortina on 05/01/2017.
  */
@@ -15,6 +17,8 @@ public class User {
         setNombre(nombre);
         setPassword(password);
     }
+
+
 
     public String getLogin() {
         return login;

@@ -81,6 +81,22 @@
         android:hint="repite contraseña"
         android:textSize="25sp" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+    <Button
+        android:text="Cancelar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonCancelarVentanaRegstro"
+        android:textSize="30sp"
+        android:layout_marginRight="60dp"
+
+        />
+
+
     <Button
         android:text="Registrarse"
         android:layout_width="wrap_content"
@@ -90,5 +106,6 @@
         android:elevation="0dp"
         android:id="@+id/botonAceptarRegistro"
         android:textSize="30sp" />
+    </LinearLayout>
 
 </LinearLayout>
