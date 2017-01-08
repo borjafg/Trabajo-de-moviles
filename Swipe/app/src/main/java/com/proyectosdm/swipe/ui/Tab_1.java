@@ -64,10 +64,6 @@ public class Tab_1 extends Fragment {
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
 
-        Log.d("Fin escaner codigo", "Se acaba de terminar de escanear");
-        Log.d("Fin escaner codigo", "Resultado distinto de null: " + String.valueOf(result != null));
-        Log.d("Fin escaner codigo", "Activity distinta de null: " + String.valueOf(getActivity() != null));
-
         if(result != null){
             if(result.getContents() == null) {
                 Toast.makeText(getActivity(), "Has cancelado el escaneo", Toast.LENGTH_LONG).show();

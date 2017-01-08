@@ -1,5 +1,7 @@
 package com.proyectosdm.swipe.business;
 
+import android.content.Context;
+
 import com.proyectosdm.swipe.business.util.ErrorPeticionException;
 import com.proyectosdm.swipe.model.User;
 
@@ -9,10 +11,8 @@ import com.proyectosdm.swipe.model.User;
 
 public interface UserService {
 
-    public User login(String login, String password) throws ErrorPeticionException;
+    User login(String login, String password) throws ErrorPeticionException;
 
-    public void registrarse(User usuario) throws ErrorPeticionException;
-
-    public User cambiarContraseña(User usuario, String nuevaContraseña);
+    void registrarse(User usuario) throws ErrorPeticionException;
 
 }

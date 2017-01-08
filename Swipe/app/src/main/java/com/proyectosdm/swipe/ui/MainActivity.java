@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+<<<<<<< HEAD
 import android.view.Gravity;
+=======
+>>>>>>> origin/master
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
@@ -17,8 +19,21 @@ import android.widget.Toast;
 
 import com.proyectosdm.swipe.R;
 import com.proyectosdm.swipe.model.User;
+<<<<<<< HEAD
+=======
+import com.proyectosdm.swipe.ui.tareas.login.TareaLogin;
+import com.proyectosdm.swipe.ui.tareas.login.TareaLoginParametros;
+>>>>>>> origin/master
 
 public class MainActivity extends AppCompatActivity{
+
+    // ---------------------------------------------
+    // Evitar Spam en boton login o registrarse
+    // ---------------------------------------------
+
+    public Boolean ejecutandoTarea = false;
+
+    // ----------------------------------------------
 
     Button btn_Abrir_Popup;
     LayoutInflater layoutInflater;
@@ -80,6 +95,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void clickConectarse(View view){
+<<<<<<< HEAD
         EditText usuario= (EditText) findViewById(R.id.editTextNombreDeUsuario);
         EditText contraseña= (EditText) findViewById(R.id.editTextContraseña);
 
@@ -91,7 +107,22 @@ public class MainActivity extends AppCompatActivity{
 
         user= new User(((EditText)findViewById(R.id.editTextNombreDeUsuario)).getText().toString(),((EditText)findViewById(R.id.editTextContraseña)).getText().toString(),((EditText)findViewById(R.id.editTextNombreDeUsuario)).getText().toString());
 
+=======
+        EditText textoLogin = (EditText) findViewById(R.id.textoLogin);
+        EditText textoPassword = (EditText) findViewById(R.id.textoPassword);
+
+        if(!ejecutandoTarea) {
+            new TareaLogin().execute(new TareaLoginParametros(textoLogin.getText().toString(), textoPassword.getText().toString(), this));
+        }
+    }
+
+    public void finClickConectarse(User user) {
+>>>>>>> origin/master
         Intent intent = new Intent (this, Tabs.class);
+
+        Log.d("Usuario", "Valor del usuario --> " + user.getLogin() + ", " + user.getPassword());
+        // Pasar un parcelable (usuario)
+
         startActivity(intent);
         }
     }

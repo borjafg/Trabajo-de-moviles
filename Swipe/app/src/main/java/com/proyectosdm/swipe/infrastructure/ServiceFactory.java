@@ -16,6 +16,8 @@ import com.proyectosdm.swipe.model.Cerveza;
 
 public class ServiceFactory {
 
+    public static String BASE_URL = "https://web-service-sdm-repositorio.herokuapp.com";
+
     public static UserService getUserService() {
         return new UserServiceImpl();
     }
