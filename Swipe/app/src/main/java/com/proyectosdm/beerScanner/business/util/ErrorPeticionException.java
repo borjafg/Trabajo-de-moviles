@@ -1,9 +1,5 @@
 package com.proyectosdm.beerScanner.business.util;
 
-/**
- * Created by Alberto Cortina on 05/01/2017.
- */
-
 public class ErrorPeticionException extends RuntimeException {
 
     private String causa;
@@ -15,5 +11,4 @@ public class ErrorPeticionException extends RuntimeException {
     public String getCausa() {
         return causa;
     }
-
 }

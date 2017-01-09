@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
             // Parametros de la peticion
-
             LoginParams params = new LoginParams(login, password);
 
             final String URL = ServiceFactory.BASE_URL + "/login";
@@ -48,7 +47,6 @@ public class UserServiceImpl implements UserService {
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
             // Parametros de la peticion
-
             RegistroParams params = new RegistroParams(usuario.getNombre(), usuario.getLogin(), usuario.getPassword());
 
             final String URL = ServiceFactory.BASE_URL + "/registrarse";

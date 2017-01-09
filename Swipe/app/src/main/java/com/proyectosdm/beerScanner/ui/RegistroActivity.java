@@ -37,17 +37,15 @@ public class RegistroActivity extends AppCompatActivity {
     // Accion de registro
     // ====================================
 
-    public void registrarse(View view){
-        if(!ejecutandoTarea) {
+    public void registrarse(View view) {
+        if (!ejecutandoTarea) {
             String nombre = ((EditText) findViewById(R.id.registroNombre)).getText().toString();
             String login = ((EditText) findViewById(R.id.registroUsuario)).getText().toString();
             String password = ((EditText) findViewById(R.id.registroContraseña)).getText().toString();
 
-            if(nombre.equals("") || login.equals("") || password.equals("")){
+            if (nombre.equals("") || login.equals("") || password.equals("")) {
                 Toast.makeText(this, "Ningún campo puede estar vacío", Toast.LENGTH_LONG).show();
-            }
-
-            else{
+            } else {
                 new TareaRegistro().execute(new TareaRegistroParametros(nombre, login, password, this));
             }
         }

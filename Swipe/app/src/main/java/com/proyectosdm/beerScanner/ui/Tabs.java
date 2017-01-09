@@ -9,8 +9,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.TextView;
 
 import com.proyectosdm.beerScanner.R;
@@ -41,15 +44,24 @@ public class Tabs extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
+    private static Tab_1 tab_1;
+    private static Tab_2 tab_2;
+
+    public static Tab_1 getTab_1() {
+        return tab_1;
+    }
+
+    public static Tab_2 getTab_2() {
+        return tab_2;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tabs);
 
         // ================================================
-
         usuarioLogueado = getIntent().getParcelableExtra("usuario");
-
         // ================================================
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -89,26 +101,16 @@ public class Tabs extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
     }
-
-   /** @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        return true;
-    }*/
-
-    /**private void updateMenuTitles() {
-        Menu menu = (Menu) findViewById(R.id.menu) ;
-        MenuItem bedMenuItem = menu.findItem(R.id.MenuOpcion1);
-        bedMenuItem.setTitle("Usuario: Pepitp");
-    }*/
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Tab_1(), "Inicio");
-        adapter.addFragment(new Tab_2(), "TWO");
-        //adapter.addFragment(new ThreeFragment(), "THREE");
+        tab_1 = new Tab_1();
+        adapter.addFragment(tab_1, "Búsqueda");
+        //adapter.addFragment(new Tab_1(), "Búsqueda");
+        tab_2 = new Tab_2();
+        adapter.addFragment(tab_2, "Historial");
+        //adapter.addFragment(new Tab_2(), "Historial");
         viewPager.setAdapter(adapter);
     }
 

@@ -8,7 +8,6 @@ public class TareaEscanearParametros {
 
     private User user;
     private String codigo;
-
     private Tab_1 tab_1;
 
     public TareaEscanearParametros(String codigo, User user, Tab_1 tab_1) {

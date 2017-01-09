@@ -20,13 +20,11 @@ public class TareaLogin extends AsyncTask<TareaLoginParametros, Void, TareaLogin
 
         params.getLoginActivity().ejecutandoTarea = true;
 
-        try{
+        try {
             User usuario = ServiceFactory.getUserService().login(params.getLogin(), params.getPassword());
 
             return new TareaLoginResultado(params.getLoginActivity(), usuario, "");
-        }
-
-        catch(ErrorPeticionException ex) {
+        } catch (ErrorPeticionException ex) {
             return new TareaLoginResultado(params.getLoginActivity(), null, ex.getCausa());
         }
     }
@@ -35,11 +33,9 @@ public class TareaLogin extends AsyncTask<TareaLoginParametros, Void, TareaLogin
     protected void onPostExecute(TareaLoginResultado resultado) {
         resultado.getLoginActivity().ejecutandoTarea = false;
 
-        if(resultado.getUser() != null) {
+        if (resultado.getUser() != null) {
             resultado.getLoginActivity().finClickConectarse(resultado.getUser());
-        }
-
-        else {
+        } else {
             Toast.makeText(resultado.getLoginActivity(), resultado.getCausaError(), Toast.LENGTH_LONG).show();
         }
     }

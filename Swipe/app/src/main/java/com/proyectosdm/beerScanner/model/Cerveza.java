@@ -7,20 +7,19 @@ public class Cerveza implements Parcelable {
 
     public String codigo;
     public String nombre;
-    public String descricpion;
+    public String descripcion;
     public String estilo;
     public double graduacion;
     public String malta;
     public String lupulo;
 
     public Cerveza() {
-
     }
 
     public Cerveza(String codigo, String nombre, String descricpion, String estilo, double graduacion, String malta, String lupulo) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.descricpion = descricpion;
+        this.descripcion = descricpion;
         this.estilo = estilo;
         this.graduacion = graduacion;
         this.malta = malta;
@@ -35,8 +34,8 @@ public class Cerveza implements Parcelable {
         return nombre;
     }
 
-    public String getDescricpion() {
-        return descricpion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public String getEstilo() {
@@ -62,7 +61,7 @@ public class Cerveza implements Parcelable {
     protected Cerveza(Parcel in) {
         this.codigo = in.readString();
         this.nombre = in.readString();
-        this.descricpion = in.readString();
+        this.descripcion = in.readString();
         this.estilo = in.readString();
         this.graduacion = in.readDouble();
         this.malta = in.readString();
@@ -73,7 +72,7 @@ public class Cerveza implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(codigo);
         dest.writeString(nombre);
-        dest.writeString(descricpion);
+        dest.writeString(descripcion);
         dest.writeString(estilo);
         dest.writeDouble(graduacion);
         dest.writeString(malta);
@@ -96,5 +95,4 @@ public class Cerveza implements Parcelable {
             return new Cerveza[size];
         }
     };
-
 }

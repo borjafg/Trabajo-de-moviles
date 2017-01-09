@@ -6,7 +6,6 @@ public class TareaLoginParametros {
 
     private String login;
     private String password;
-
     private LoginActivity loginActivity;
 
     public TareaLoginParametros(String login, String password, LoginActivity loginActivity) {

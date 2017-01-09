@@ -1,21 +1,17 @@
-package com.proyectosdm.beerScanner.ui.tareas.escanear;
+package com.proyectosdm.beerScanner.ui.tareas.sugerencia;
 
 import com.proyectosdm.beerScanner.model.Cerveza;
 import com.proyectosdm.beerScanner.model.User;
 import com.proyectosdm.beerScanner.ui.LoginActivity;
 import com.proyectosdm.beerScanner.ui.Tab_1;
 
-/**
- * Created by Alberto Cortina on 07/01/2017.
- */
-
-public class TareaEscanearResultado {
+public class TareaSugerenciaResultado {
 
     private Tab_1 tab_1;
     private Cerveza cerveza;
     private String causaError; // Solo si cerveza es null
 
-    public TareaEscanearResultado(Tab_1 tab_1, Cerveza cerveza, String causaError) {
+    public TareaSugerenciaResultado(Tab_1 tab_1, Cerveza cerveza, String causaError) {
         this.tab_1 = tab_1;
         this.cerveza = cerveza;
         this.causaError = causaError;

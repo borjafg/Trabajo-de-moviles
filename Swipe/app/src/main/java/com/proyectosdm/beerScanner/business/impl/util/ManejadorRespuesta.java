@@ -13,16 +13,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by Alberto Cortina on 07/01/2017.
- */
-
 public class ManejadorRespuesta implements ResponseErrorHandler {
 
     @Override
-    public void handleError(ClientHttpResponse clienthttpresponse)
-            throws IOException {
-
+    public void handleError(ClientHttpResponse clienthttpresponse) throws IOException {
         try {
             String error = parseToString(clienthttpresponse.getBody());
 
@@ -31,22 +25,16 @@ public class ManejadorRespuesta implements ResponseErrorHandler {
             String causa = json.getString("causa");
 
             throw new ErrorPeticionException(causa);
-        }
-
-        catch(JSONException js) {
+        } catch (JSONException js) {
             throw new ErrorPeticionException("Ha ocurrido un error al gestionar su peticion");
         }
-
     }
 
     @Override
-    public boolean hasError(ClientHttpResponse clienthttpresponse)
-            throws IOException {
-
+    public boolean hasError(ClientHttpResponse clienthttpresponse) throws IOException {
         if (clienthttpresponse.getStatusCode() != HttpStatus.OK) {
             return true;
         }
-
         return false;
     }
 
@@ -63,11 +51,8 @@ public class ManejadorRespuesta implements ResponseErrorHandler {
             }
 
             return buf.toString();
-        }
-
-        catch(IOException ex) {
+        } catch (IOException ex) {
             return "Ha ocurrido un error al gestionar su peticion";
         }
     }
-
 }

@@ -30,13 +30,13 @@ public class LoginActivity extends AppCompatActivity{
     public void onBackPressed() {
     }
 
-    public void registrarse(View view){
+    public void registrarse(View view) {
         EditText textoLogin = (EditText) findViewById(R.id.textoLogin);
         EditText textoPassword = (EditText) findViewById(R.id.textoPassword);
         textoLogin.setText("");
         textoPassword.setText("");
 
-        Intent intent = new Intent (this, RegistroActivity.class);
+        Intent intent = new Intent(this, RegistroActivity.class);
         startActivity(intent);
     }
 

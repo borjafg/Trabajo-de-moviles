@@ -15,15 +15,13 @@ public class TareaRegistro extends AsyncTask<TareaRegistroParametros, Void, Tare
 
         params.getRegistroActivity().ejecutandoTarea = true;
 
-        try{
+        try {
             User usuario = new User(params.getLogin(), params.getPassword(), params.getNombre());
 
             ServiceFactory.getUserService().registrarse(usuario);
 
             return new TareaRegistroResultado(params.getRegistroActivity(), usuario, "");
-        }
-
-        catch(ErrorPeticionException ex) {
+        } catch (ErrorPeticionException ex) {
             return new TareaRegistroResultado(params.getRegistroActivity(), null, ex.getCausa());
         }
     }
@@ -32,11 +30,9 @@ public class TareaRegistro extends AsyncTask<TareaRegistroParametros, Void, Tare
     protected void onPostExecute(TareaRegistroResultado resultado) {
         resultado.getRegistroActivity().ejecutandoTarea = false;
 
-        if(resultado.getUser() != null) {
+        if (resultado.getUser() != null) {
             resultado.getRegistroActivity().finClickRegistrarse(resultado.getUser());
-        }
-
-        else {
+        } else {
             Toast.makeText(resultado.getRegistroActivity(), resultado.getCausaError(), Toast.LENGTH_LONG).show();
         }
     }

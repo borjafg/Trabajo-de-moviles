@@ -3,16 +3,10 @@ package com.proyectosdm.beerScanner.ui.tareas.login;
 import com.proyectosdm.beerScanner.model.User;
 import com.proyectosdm.beerScanner.ui.LoginActivity;
 
-/**
- * Created by Alberto Cortina on 07/01/2017.
- */
-
 public class TareaLoginResultado {
 
     private LoginActivity loginActivity;
-
     private User user;
-
     private String causaError; // Solo si user es null
 
     public TareaLoginResultado(LoginActivity loginActivity, User user, String causaError) {
@@ -29,7 +23,7 @@ public class TareaLoginResultado {
         return user;
     }
 
-    public java.lang.String getCausaError() {
+    public String getCausaError() {
         return causaError;
     }
 }

@@ -3,11 +3,9 @@ package com.proyectosdm.beerScanner.business.impl.params;
 public class EscanerParams {
 
     private String codigo_cerveza;
-
     private LoginParams usuario;
 
     public EscanerParams() {
-
     }
 
     public EscanerParams(String codigo_cerveza, LoginParams usuario) {

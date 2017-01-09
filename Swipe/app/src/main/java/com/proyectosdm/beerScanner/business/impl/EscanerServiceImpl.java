@@ -13,10 +13,6 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * Created by Alberto Cortina on 05/01/2017.
- */
-
 public class EscanerServiceImpl implements EscanerService {
 
     @Override
@@ -30,7 +26,6 @@ public class EscanerServiceImpl implements EscanerService {
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
             // Parametros de la peticion
-
             LoginParams params = new LoginParams(usuario.getLogin(), usuario.getPassword());
             EscanerParams paramsFinal = new EscanerParams(codigoQR, params);
 

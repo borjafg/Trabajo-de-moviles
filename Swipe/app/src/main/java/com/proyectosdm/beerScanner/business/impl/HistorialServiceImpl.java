@@ -4,28 +4,29 @@ import com.proyectosdm.beerScanner.business.HistorialService;
 import com.proyectosdm.beerScanner.business.impl.params.EscanerParams;
 import com.proyectosdm.beerScanner.business.impl.params.HistorialParams;
 import com.proyectosdm.beerScanner.business.impl.params.LoginParams;
+import com.proyectosdm.beerScanner.business.impl.util.HistorialRespuesta;
 import com.proyectosdm.beerScanner.business.impl.util.ManejadorRespuesta;
 import com.proyectosdm.beerScanner.business.util.ErrorPeticionException;
 import com.proyectosdm.beerScanner.infrastructure.ServiceFactory;
 import com.proyectosdm.beerScanner.model.Cerveza;
 import com.proyectosdm.beerScanner.model.User;
 
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-
-/**
- * Created by Alberto Cortina on 05/01/2017.
- */
 
 public class HistorialServiceImpl implements HistorialService{
 
     @Override
     public List<Cerveza> obtenerHistorial(User usuario) throws ErrorPeticionException {
         try {
-            List<Cerveza> cervezas = null;
+            HistorialRespuesta historial = null;
 
             RestTemplate restTemplate = new RestTemplate();
 
@@ -36,9 +37,15 @@ public class HistorialServiceImpl implements HistorialService{
             HistorialParams params = new HistorialParams(usuario.getLogin(), usuario.getPassword());
 
             final String URL = ServiceFactory.BASE_URL + "/historial";
-            cervezas = restTemplate.postForObject(URL, params, .class);
+            historial = restTemplate.postForObject(URL, params, HistorialRespuesta.class);
 
-            return cervezas;
+            List<Cerveza> listaCervezas = new ArrayList<Cerveza>();
+
+            for(Cerveza cerveza : historial.getHistorial()) {
+                listaCervezas.add(cerveza);
+            }
+
+            return listaCervezas;
         }
 
         catch (RestClientException rce) {

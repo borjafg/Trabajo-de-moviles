@@ -9,10 +9,6 @@ import com.proyectosdm.beerScanner.business.impl.HistorialServiceImpl;
 import com.proyectosdm.beerScanner.business.impl.SugerenciaServiceImpl;
 import com.proyectosdm.beerScanner.business.impl.UserServiceImpl;
 
-/**
- * Created by Alberto Cortina on 05/01/2017.
- */
-
 public class ServiceFactory {
 
     public static String BASE_URL = "https://web-service-sdm-repositorio.herokuapp.com";

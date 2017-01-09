@@ -1,14 +1,14 @@
 package com.proyectosdm.beerScanner.business.impl.params;
 
-public class HistorialParams {
+public class SugerenciaParams {
 
     private String login;
     private String password;
 
-    public HistorialParams() {
+    public SugerenciaParams() {
     }
 
-    public HistorialParams(String login, String password) {
+    public SugerenciaParams(String login, String password) {
         this.login = login;
         this.password = password;
     }

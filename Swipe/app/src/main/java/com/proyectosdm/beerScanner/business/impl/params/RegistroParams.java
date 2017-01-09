@@ -1,9 +1,5 @@
 package com.proyectosdm.beerScanner.business.impl.params;
 
-/**
- * Created by Alberto Cortina on 10/01/2017.
- */
-
 public class RegistroParams {
 
     private String nombre;
@@ -11,7 +7,6 @@ public class RegistroParams {
     private String password;
 
     public RegistroParams() {
-
     }
 
     public RegistroParams(String nombre, String login, String password) {

@@ -6,11 +6,7 @@ import com.proyectosdm.beerScanner.model.User;
 
 import java.util.List;
 
-/**
- * Created by Alberto Cortina on 05/01/2017.
- */
-
 public interface HistorialService {
 
-    public List<Cerveza> obtenerHistorial(User usuario) throws ErrorPeticionException;
+    List<Cerveza> obtenerHistorial(User usuario) throws ErrorPeticionException;
 }

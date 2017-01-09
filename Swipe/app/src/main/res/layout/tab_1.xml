@@ -1,24 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     tools:context="com.proyectosdm.beerScanner.ui.Tabs"
-    android:orientation="vertical">
+    android:rowCount="1"
+    android:columnCount="2"
+    android:layout_gravity="center_vertical">
 
     <Button
         android:id="@+id/scan_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Escanear"
+        android:layout_column="0"
+        android:onClick="scaner"
+        android:paddingBottom="20dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingTop="20dp"
+        android:text="Buscar por codigo"
         android:textAlignment="center"
         android:textSize="40dp"
-        android:onClick="scaner"
-        android:layout_gravity="center"
+        android:layout_gravity="left|center_vertical"
+        android:layout_row="0"
+        android:layout_marginLeft="20dp" />
+
+    <Button
+        android:id="@+id/bt_sugerencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="0"
+        android:text="Buscar sugerencia"
         android:paddingBottom="20dp"
         android:paddingTop="20dp"
         android:paddingRight="40dp"
-        android:paddingLeft="40dp" />
+        android:paddingLeft="40dp"
+        android:textSize="40dp"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="20dp" />
 
 </GridLayout>

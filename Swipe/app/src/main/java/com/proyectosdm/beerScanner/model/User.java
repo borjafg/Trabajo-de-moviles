@@ -3,10 +3,6 @@ package com.proyectosdm.beerScanner.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by Alberto Cortina on 05/01/2017.
- */
-
 public class User implements Parcelable {
 
     private String login;
@@ -14,19 +10,6 @@ public class User implements Parcelable {
     private String nombre;
 
     public User() {
-
-    }
-
-    protected User(Parcel in) {
-        login = in.readString();
-        password = in.readString();
-        nombre = in.readString();
-    }
-
-    public User(String login, String password, String nombre) {
-        setLogin(login);
-        setNombre(nombre);
-        setPassword(password);
     }
 
     public String getLogin() {
@@ -51,6 +34,21 @@ public class User implements Parcelable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    // ==========================================
+    // Parcelable
+    // ==========================================
+    protected User(Parcel in) {
+        login = in.readString();
+        password = in.readString();
+        nombre = in.readString();
+    }
+
+    public User(String login, String password, String nombre) {
+        setLogin(login);
+        setNombre(nombre);
+        setPassword(password);
     }
 
     @Override

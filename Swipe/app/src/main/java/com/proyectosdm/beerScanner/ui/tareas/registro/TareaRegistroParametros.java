@@ -2,10 +2,6 @@ package com.proyectosdm.beerScanner.ui.tareas.registro;
 
 import com.proyectosdm.beerScanner.ui.RegistroActivity;
 
-/**
- * Created by Alberto Cortina on 10/01/2017.
- */
-
 public class TareaRegistroParametros {
 
     private String nombre;
@@ -29,7 +25,7 @@ public class TareaRegistroParametros {
         return login;
     }
 
-    public String getPassword(){
+    public String getPassword() {
         return password;
     }
 
