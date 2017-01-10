@@ -2,6 +2,7 @@ package com.proyectosdm.beerScanner.business.impl;
 
 import com.proyectosdm.beerScanner.business.HistorialService;
 import com.proyectosdm.beerScanner.business.impl.params.EscanerParams;
+import com.proyectosdm.beerScanner.business.impl.params.HistorialParams;
 import com.proyectosdm.beerScanner.business.impl.params.LoginParams;
 import com.proyectosdm.beerScanner.business.impl.util.ManejadorRespuesta;
 import com.proyectosdm.beerScanner.business.util.ErrorPeticionException;
@@ -32,12 +33,12 @@ public class HistorialServiceImpl implements HistorialService{
             restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
             // Parametros de la peticion
-            HistorialParams params = new HistorialParams(usuario);
+            HistorialParams params = new HistorialParams(usuario.getLogin(), usuario.getPassword());
 
-            final String URL = ServiceFactory.BASE_URL + "/";
-            cerveza = restTemplate.postForObject(URL, params, Cerveza.class);
+            final String URL = ServiceFactory.BASE_URL + "/historial";
+            cervezas = restTemplate.postForObject(URL, params, Cerveza.class);
 
-            return cerveza;
+            return cervezas;
         }
 
         catch (RestClientException rce) {
