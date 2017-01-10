@@ -8,8 +8,8 @@
 
     <item
         android:id="@+id/MenuOpcion1"
-        android:title="Prueba"
-        app:showAsAction="ifRoom">
+        android:title=""
+        app:showAsAction="always">
     </item>
 
     <item

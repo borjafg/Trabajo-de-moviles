@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Swipe</string>
+    <string name="app_name">BeerScanner</string>
     <string name="atras">Atras</string>
     <string name="usuarioMenu">Usuario: Pepito</string>
     <string name="scanear">Escanear</string>
