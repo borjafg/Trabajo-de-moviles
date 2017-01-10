@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -17,6 +18,11 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.proyectosdm.beerScanner.R;
+import com.proyectosdm.beerScanner.model.Cerveza;
+import com.proyectosdm.beerScanner.ui.tareas.escanear.TareaEscanear;
+import com.proyectosdm.beerScanner.ui.tareas.escanear.TareaEscanearParametros;
+import com.proyectosdm.beerScanner.ui.tareas.login.TareaLogin;
+import com.proyectosdm.beerScanner.ui.tareas.login.TareaLoginParametros;
 
 public class Tab_1 extends Fragment {
 
@@ -67,7 +73,7 @@ public class Tab_1 extends Fragment {
             }
 
             else {
-                mostrarResultado();
+                empezarEscanear(result.getContents());
             }
         }
 
@@ -77,33 +83,28 @@ public class Tab_1 extends Fragment {
         }
     }
 
-    // ==================================
-    // Mostrar resultado del escameo
-    // ==================================
+    // ====================================
+    // Accion de escaneo
+    // ====================================
 
-    LayoutInflater layoutInflater;
-    PopupWindow popupWindow;
+    public void empezarEscanear(String codigo){
+        if(!((Tabs) getActivity()).ejecutandoTarea) {
+            if(codigo == null || codigo.equals("")){
+                Toast.makeText(getActivity(), "No se ha reconocido el código", Toast.LENGTH_LONG).show();
+            }
 
-    public void mostrarResultado(View view) {
-        View popupView = getActivity().getLayoutInflater().inflate(R.layout.pop_up_info_cerveza, null);
+            else{
+                new TareaEscanear().execute(new TareaEscanearParametros(codigo, ((Tabs) getActivity()).getUsuarioLogueado(), this));
+            }
+        }
+    }
 
-        popupWindow = new PopupWindow(popupView, CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
-        popupWindow.setFocusable(true);
-        popupWindow.update();
+    public void finEscanear(Cerveza cerveza) {
+        Intent intent = new Intent (getActivity(), InfoCervezaActivity.class);
 
-        btn_Registrar = (Button)popupView.findViewById(R.id.botonAceptarRegistro);
-        btn_Registrar.setOnClickListener(new Button.OnClickListener(){
+        intent.putExtra("cerveza", cerveza);
 
-            @Override
-            public void onClick(View v) {
-                //Comprobar que las contraseñas coinciden y el usuario no existe en la BD
-
-                //Guardar los datos en la base de datos
-
-                popupWindow.dismiss();
-            }});
-
-        popupWindow.showAsDropDown(iniciasesion, 0, -130);
+        startActivity(intent);
     }
 
 }

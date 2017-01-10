@@ -1,9 +1,5 @@
 package com.proyectosdm.beerScanner.business.impl.params;
 
-/**
- * Created by Alberto Cortina on 07/01/2017.
- */
-
 public class LoginParams {
 
     private String login;

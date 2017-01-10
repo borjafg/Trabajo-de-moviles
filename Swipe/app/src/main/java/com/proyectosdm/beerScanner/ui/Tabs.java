@@ -21,13 +21,25 @@ import java.util.List;
 
 public class Tabs extends AppCompatActivity {
 
+    // =======================================================
+    // No puede hacer nada hasta terminar la accion actual
+    // =======================================================
+
+    public Boolean ejecutandoTarea = false;
+
+    // =======================================================
+    // Usuario que está usando la aplicación
+    // =======================================================
+
     private User usuarioLogueado; // Pasar de la LoginActivity con un parcelable
+
+    public User getUsuarioLogueado() {
+        return usuarioLogueado;
+    }
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
-    private ClipData.Item apagar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +78,8 @@ public class Tabs extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.MenuOpcion2) {
-            //Intent intent = new Intent (this, LoginActivity.class);
-            //startActivity(intent);
+            ejecutandoTarea = false;
+
             this.finish();
             return true;
         }

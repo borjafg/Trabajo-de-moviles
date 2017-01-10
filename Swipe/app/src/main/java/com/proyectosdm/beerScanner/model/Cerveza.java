@@ -1,12 +1,15 @@
 package com.proyectosdm.beerScanner.model;
 
-public class Cerveza {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Cerveza implements Parcelable {
 
     public String codigo;
     public String nombre;
     public String descricpion;
     public String estilo;
-    public String graduacion;
+    public double graduacion;
     public String malta;
     public String lupulo;
 
@@ -14,7 +17,7 @@ public class Cerveza {
 
     }
 
-    public Cerveza(String codigo, String nombre, String descricpion, String estilo, String graduacion, String malta, String lupulo) {
+    public Cerveza(String codigo, String nombre, String descricpion, String estilo, double graduacion, String malta, String lupulo) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descricpion = descricpion;
@@ -40,7 +43,7 @@ public class Cerveza {
         return estilo;
     }
 
-    public String getGraduacion() {
+    public double getGraduacion() {
         return graduacion;
     }
 
@@ -51,4 +54,47 @@ public class Cerveza {
     public String getLupulo() {
         return lupulo;
     }
+
+    // ==========================================
+    // Parcelable
+    // ==========================================
+
+    protected Cerveza(Parcel in) {
+        this.codigo = in.readString();
+        this.nombre = in.readString();
+        this.descricpion = in.readString();
+        this.estilo = in.readString();
+        this.graduacion = in.readDouble();
+        this.malta = in.readString();
+        this.lupulo = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(codigo);
+        dest.writeString(nombre);
+        dest.writeString(descricpion);
+        dest.writeString(estilo);
+        dest.writeDouble(graduacion);
+        dest.writeString(malta);
+        dest.writeString(lupulo);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Parcelable.Creator<Cerveza> CREATOR = new Parcelable.Creator<Cerveza>() {
+        @Override
+        public Cerveza createFromParcel(Parcel in) {
+            return new Cerveza(in);
+        }
+
+        @Override
+        public Cerveza[] newArray(int size) {
+            return new Cerveza[size];
+        }
+    };
+
 }
