@@ -7,10 +7,6 @@ import com.proyectosdm.swipe.business.util.ErrorPeticionException;
 import com.proyectosdm.swipe.infrastructure.ServiceFactory;
 import com.proyectosdm.swipe.model.User;
 
-/**
- * Created by Alberto Cortina on 07/01/2017.
- */
-
 /* Primer parámetro: Tipo de los parámetros que se le pasan antes de ejecutar
  * Segundo parámetro: Tipo de la unidades de progreso del proceso que se ejecute
  * Tercer parámetro: Tipo del objeto que devuelve la tarea
@@ -47,5 +43,4 @@ public class TareaLogin extends AsyncTask<TareaLoginParametros, Void, TareaLogin
             Toast.makeText(resultado.getMainActivity(), resultado.getCausaError(), Toast.LENGTH_LONG).show();
         }
     }
-
 }

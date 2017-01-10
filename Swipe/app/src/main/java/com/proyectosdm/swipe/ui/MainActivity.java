@@ -16,6 +16,8 @@ import com.proyectosdm.swipe.R;
 import com.proyectosdm.swipe.model.User;
 import com.proyectosdm.swipe.ui.tareas.login.TareaLogin;
 import com.proyectosdm.swipe.ui.tareas.login.TareaLoginParametros;
+import com.proyectosdm.swipe.ui.tareas.registro.TareaRegistro;
+import com.proyectosdm.swipe.ui.tareas.registro.TareaRegistroParametros;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -27,41 +29,40 @@ public class MainActivity extends AppCompatActivity{
 
     // ----------------------------------------------
 
-    Button btn_Abrir_Popup;
     LayoutInflater layoutInflater;
     View popupView;
     PopupWindow popupWindow;
-    Button btn_Registrar;
-    TextView iniciasesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-    iniciasesion= (TextView)findViewById(R.id.tvIniciaSesion);
-        btn_Abrir_Popup = (Button)findViewById(R.id.botonregistrarse);
+        final TextView iniciasesion= (TextView)findViewById(R.id.tvIniciaSesion);
+        Button btn_Abrir_Popup = (Button)findViewById(R.id.botonregistrarse);
         btn_Abrir_Popup.setOnClickListener(new Button.OnClickListener(){
 
             @Override
             public void onClick(View arg0) {
                 layoutInflater =(LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 popupView = layoutInflater.inflate(R.layout.pop_registro, null);
-                popupWindow = new PopupWindow(popupView, RadioGroup.LayoutParams.MATCH_PARENT,
-                        RadioGroup.LayoutParams.MATCH_PARENT);
+                popupWindow = new PopupWindow(popupView, RadioGroup.LayoutParams.MATCH_PARENT, RadioGroup.LayoutParams.MATCH_PARENT);
                 popupWindow.setFocusable(true);
                 popupWindow.update();
 
-                btn_Registrar = (Button)popupView.findViewById(R.id.botonAceptarRegistro);
+                Button btn_Registrar = (Button) popupView.findViewById(R.id.botonAceptarRegistro);
                 btn_Registrar.setOnClickListener(new Button.OnClickListener(){
 
                     @Override
                     public void onClick(View v) {
-                        //Comprobar que las contraseñas coinciden y el usuario no existe en la BD
+                        clickRegistrarse(v);
+                    }});
 
-                        //Guardar los datos en la base de datos
+                Button btn_cancelar = (Button) popupView.findViewById(R.id.botonCancelarRegistro);
+                btn_cancelar.setOnClickListener(new Button.OnClickListener(){
 
-
+                    @Override
+                    public void onClick(View v) {
                         popupWindow.dismiss();
                     }});
 
@@ -70,12 +71,21 @@ public class MainActivity extends AppCompatActivity{
             }});
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
+
+    // ====================================
+    // Accion de login
+    // ====================================
+
     public void clickConectarse(View view){
-        EditText textoLogin = (EditText) findViewById(R.id.textoLogin);
-        EditText textoPassword = (EditText) findViewById(R.id.textoPassword);
+        String textoLogin = ((EditText) findViewById(R.id.textoLogin)).getText().toString();
+        String textoPassword = ((EditText) findViewById(R.id.textoPassword)).getText().toString();
 
         if(!ejecutandoTarea) {
-            new TareaLogin().execute(new TareaLoginParametros(textoLogin.getText().toString(), textoPassword.getText().toString(), this));
+            new TareaLogin().execute(new TareaLoginParametros(textoLogin, textoPassword, this));
         }
     }
 
@@ -88,9 +98,24 @@ public class MainActivity extends AppCompatActivity{
         startActivity(intent);
     }
 
-    @Override
-    public void onBackPressed() {
+    // ====================================
+    // Accion de registro
+    // ====================================
+    public void clickRegistrarse(View view){
+        String textoNombre = ((EditText) findViewById(R.id.registroNombre)).getText().toString();
+        String textoLogin = ((EditText) findViewById(R.id.registroUsuario)).getText().toString();
+        String textoPassword = ((EditText) findViewById(R.id.registroContraseña)).getText().toString();
 
+        if(!ejecutandoTarea) {
+            new TareaRegistro().execute(new TareaRegistroParametros(textoNombre, textoLogin, textoPassword, this));
+        }
     }
+    public void finClickRegistrarse(User user) {
+        Intent intent = new Intent (this, Tabs.class);
 
+        Log.d("Usuario", "Valor del usuario --> " + user.getLogin() + ", " + user.getPassword());
+        // Pasar un parcelable (usuario)
+
+        startActivity(intent);
+    }
 }
