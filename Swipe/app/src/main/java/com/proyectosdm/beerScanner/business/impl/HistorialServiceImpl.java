@@ -36,7 +36,7 @@ public class HistorialServiceImpl implements HistorialService{
             HistorialParams params = new HistorialParams(usuario.getLogin(), usuario.getPassword());
 
             final String URL = ServiceFactory.BASE_URL + "/historial";
-            cervezas = restTemplate.postForObject(URL, params, Cerveza.class);
+            cervezas = restTemplate.postForObject(URL, params, .class);
 
             return cervezas;
         }
